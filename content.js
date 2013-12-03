@@ -8,22 +8,25 @@ function injectAOLVideos() {
 	console.log("injecting");
   $('.userContentWrapper:not(.aol-modified)').each(function (idx) {
     var wrapper = $(this);
+    wrapper.addClass("aol-modified"); //We already checked this, don't bother checking it again
+
     if (isSubContent(wrapper)) {
-      wrapper.addClass("aol-modified"); //We already checked this, don't bother checking it again
       return;
     }
     var ugc = wrapper.find(".userContent").text().trim();
-    var phrase = (ugc && NLP.getKeywords(ugc));
-    var likePageBtn = wrapper.find('.PageLikeButton');
+    if (ugc) {
+      NLP2.getKeywords(ugc, function(phrase){
+        if (phrase) {
+            var likePageBtn = wrapper.find('.PageLikeButton');
 
-  	console.log(idx, " : ", ugc, " : ", phrase);
-    // If we found keywords for a phrase, populate some thumbnails.
-    if (likePageBtn.length === 0 && phrase) {
-      loadThumbnails(phrase, wrapper);
+            console.log(idx, " : ", ugc, " : ", phrase);
+            // If we found keywords for a phrase, populate some thumbnails.
+            if (likePageBtn.length === 0 && phrase) {
+              loadThumbnails(phrase, wrapper);
+            }
+        }
+      });
     }
-
-    // Flag the wrapper so we don't deal with it again.
-    wrapper.addClass("aol-modified");
   });
 }
 
