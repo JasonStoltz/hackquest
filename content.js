@@ -10,29 +10,27 @@ $(document).ready(function () {
       // Verify this isn't a "sponsored" item
       var likePageBtn = parent.find('.PageLikeButton');
       if (likePageBtn.length === 0) {
-        loadThumbnails(phrase, parent);
+        loadVideos(phrase, parent);
       }
     }
   });
 });
 
-function loadThumbnails(phrase, parent) {
+function loadVideos(phrase, parent) {
   $.get("http://api.5min.com/search/" + phrase + "./videos.json?sid=577").done(function(response){
     var videos = response.items;
     var videosAdded = 0;
     var video = videos[0];
 
-    var $video = $('<div style="background-color: #EDEFF4;margin-top: 10px;padding: 10px;margin-left: 60px;">'+
+    var $video = $('<div style="background-color: #EDEFF4;margin-top: 10px;padding: 10px;margin-left: 60px;margin-right: 18px;">'+
         '<span style="font-size: 14px; font-weight: bold;">Related Video From AOL</span><br/><br/>' +
         video.title + '<br/><br/>' +
-        '<a style="margin-top: 10px" target="_blank" href="' + video.player.url + '"><img height="212px" width="398px" src="' + video.image + '"></img></a>' +
+        //'<a style="margin-top: 10px" target="_blank" href="' + video.player.url + '"><img height="212px" width="398px" src="' + video.image + '"></img></a>' +
+        '<video style="margin-top: 10px" id="'+ video.id +'" class="aol-video-base aol-video-cat-'+ video.channel.toLowerCase +'" controls preload="auto" width="390px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
       '</div>');
 
-    $video.on('click', function(event) {
-      //do nothing yet
-    });
-
     $(parent).append($video);
+
   });
 }
 
