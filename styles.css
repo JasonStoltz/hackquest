@@ -46,6 +46,8 @@
 
 .aol-video.food .aol-logo {
 	background-image: url(http://at.on.aol.com/category/1/7.png);
+	background-size: 80px 30px;
+	width: 50px;
 }
 
 .aol-video.health .aol-logo {
