@@ -2,10 +2,11 @@
 .aol-video {
 	position: relative;
 	background-color: #EDEFF4;
-	margin-top: 5px;
+	margin-top: 25px;
 	height: 105px;
-	font-size: 11pt;
-	line-height: 1.28em;
+	overflow: hidden;
+	/*font-size: 11pt;
+	line-height: 1.28em;*/
 }
 
 .aol-video-thumbnail {
@@ -19,7 +20,6 @@
 .aol-video-title {
 	margin-left: 140px;
 	padding: 3px 7px;
-	color: #3B5998;
 	display: block;
 }
 

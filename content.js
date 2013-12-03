@@ -61,7 +61,7 @@ function loadThumbnails(phrase, wrapper) {
     });
 
     if (videoIds.indexOf(video.id) ==  -1) {
-      wrapper.append($video);
+      wrapper.find('._5pax').append($video);
       videoIds.push(video.id);
     };
 
