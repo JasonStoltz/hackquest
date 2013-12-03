@@ -6,11 +6,31 @@ $(document).ready(function () {
     var phrase = NLP.getKeywords(ugc.text());
     if (typeof phrase !== 'undefined' && phrase.length > 0) {
       var parent = ugc.parents('.userContentWrapper');
-      $(parent).append('<div>VIDEO SEARCH: ' + phrase + '</div>');
+
+      loadThumbnails(phrase, parent);
     }
   });
 });
 
+function loadThumbnails(phrase, parent) {
+  $.get("http://api.5min.com/search/" + phrase + "./videos.json?categories_list=20,21&sid=577").done(function(response){
+    var videos = response.items;
+    var videosAdded = 0;
+    var video = videos[0];
+
+    var $video = $('<div style="background-color: #EDEFF4;margin-top: 10px;padding: 10px;margin-left: 60px;">'+
+        '<span style="font-size: 14px; font-weight: bold;">Related Video From AOL</span><br/><br/>' +
+        video.title + '<br/><br/>' +
+        '<a style="margin-top: 10px" target="_blank" href="' + video.player.url + '"><img height="212px" width="398px" src="' + video.image + '"></img></a>' +
+      '</div>');
+
+    $video.on('click', function(event) {
+      //do nothing yet
+    });
+
+    $(parent).append($video);
+  }); 
+}
 
 var NLP = (function(){
   var prepositions = [
