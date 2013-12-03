@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "AOL Videos on Facebook",
+  "description": "Injects AOL Videos onto your Facebook posts that provide related content to the post.",
+  "version": "1.0",
+
+  "permissions": [
+    "https://code.jquery.com/"
+  ],
+
+  "content_scripts": [{
+      "all_frames": true,
+      "js": [ "jquery.js", "content.js" ],
+      "matches": [ "https://www.facebook.com/*" ],
+      "exclude_matches": [ "https://www.facebook.com/**/*" ]
+  }]
+}
