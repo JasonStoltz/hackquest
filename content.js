@@ -7,13 +7,17 @@ $(document).ready(function () {
     if (typeof phrase !== 'undefined' && phrase.length > 0) {
       var parent = ugc.parents('.userContentWrapper');
 
-      loadThumbnails(phrase, parent);
+      // Verify this isn't a "sponsored" item
+      var likePageBtn = parent.find('.PageLikeButton');
+      if (likePageBtn.length === 0) {
+        loadThumbnails(phrase, parent);
+      }
     }
   });
 });
 
 function loadThumbnails(phrase, parent) {
-  $.get("http://api.5min.com/search/" + phrase + "./videos.json?categories_list=20,21&sid=577").done(function(response){
+  $.get("http://api.5min.com/search/" + phrase + "./videos.json?sid=577").done(function(response){
     var videos = response.items;
     var videosAdded = 0;
     var video = videos[0];
@@ -29,7 +33,7 @@ function loadThumbnails(phrase, parent) {
     });
 
     $(parent).append($video);
-  }); 
+  });
 }
 
 var NLP = (function(){
