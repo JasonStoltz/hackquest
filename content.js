@@ -38,10 +38,11 @@ function loadThumbnails(phrase, wrapper) {
   $.get("http://api.5min.com/search/" + phrase + "./videos.json?sid=577").done(function(response){
     var videos = response.items;
     var video = videos[0];
-    var $video = $('<div class="aol-video ' + video.channel.toLowerCase().replace(/\w/, '-') + '">'+
+    var $video = 
+      $('<div class="aol-video ' + video.channel.replace(/[^\w]/g, '-').toLowerCase() + '">' +
+        '<div class="aol-logo" title="Aol On ' + video.channel + '"></div>' +
         '<a class="fwb aol-video-title">' + video.title + '</a>' +
-        //'<a style="margin-top: 10px" target="_blank" href="' + video.player.url + '"><img height="212px" width="398px" src="' + video.image + '"></img></a>' +
-        '<video id="'+ video.id +'" class="aol-video-base aol-video-cat-'+ video.channel.toLowerCase() +'" controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
+        '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
       '</div>');
 
     $video.on('click', function(event) {

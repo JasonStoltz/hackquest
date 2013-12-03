@@ -9,6 +9,89 @@
 
 }
 
+.aol-video .aol-logo {
+	display: block;
+	float: right;
+	height: 30px;
+	width: 52px;
+	margin-left: 15px;
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-image: url(http://at.on.aol.com/category/4/7.png); /* default */
+}
+
 .aol-video video {
 	margin-top: 10px;
+}
+
+.aol-video.arts---hobbies .aol-logo {
+	background-image: url(http://at.on.aol.com/category/58/4.png);
+}
+
+.aol-video.autos .aol-logo {
+	background-image: url(http://at.on.aol.com/category/5/5.png);
+}
+
+.aol-video.business .aol-logo {
+	background-image: url(http://at.on.aol.com/category/7/3.png);
+}
+
+.aol-video.education .aol-logo {
+	background-image: url(http://at.on.aol.com/category/60/2.png);
+}
+
+.aol-video.entertainment .aol-logo {
+	background-image: url(http://at.on.aol.com/category/3/3.png);
+}
+
+.aol-video.food .aol-logo {
+	background-image: url(http://at.on.aol.com/category/1/7.png);
+}
+
+.aol-video.health .aol-logo {
+	background-image: url(http://at.on.aol.com/category/6/3.png);
+}
+
+.aol-video.home .aol-logo {
+	background-image: url(http://at.on.aol.com/category/11/3.png);
+}
+
+.aol-video.life-tips .aol-logo {
+	background-image: url(http://at.on.aol.com/category/59/2.png);
+}
+
+.aol-video.news .aol-logo {
+	background-image: url(http://at.on.aol.com/category/4/7.png);
+}
+
+.aol-video.parenting .aol-logo {
+	background-image: url(http://at.on.aol.com/category/9/2.png);
+}
+
+.aol-video.pets .aol-logo {
+	background-image: url(http://at.on.aol.com/category/13/3.png);
+}
+
+.aol-video.relationships .aol-logo {
+	background-image: url(http://at.on.aol.com/category/16/3.png);
+}
+
+.aol-video.sports .aol-logo {
+	background-image: url(http://at.on.aol.com/category/57/2.png);
+}
+
+.aol-video.style .aol-logo {
+	background-image: url(http://at.on.aol.com/category/2/4.png);
+}
+
+.aol-video.tech .aol-logo {
+	background-image: url(http://at.on.aol.com/category/8/2.png);
+}
+
+.aol-video.travel .aol-logo {
+	background-image: url(http://at.on.aol.com/category/10/3.png);
+}
+
+.aol-video.video-games .aol-logo {
+	background-image: url(http://at.on.aol.com/category/12/2.png);
 }
