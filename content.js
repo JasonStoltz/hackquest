@@ -16,7 +16,7 @@ function injectAOLVideos() {
     var phrase = (ugc && NLP.getKeywords(ugc));
     var likePageBtn = wrapper.find('.PageLikeButton');
 
-  	console.log(idx, " : ", ugc, " : ", phrase);
+console.log(idx, " : ", ugc, " : ", phrase);
     // If we found keywords for a phrase, populate some thumbnails.
     if (likePageBtn.length === 0 && phrase) {
       loadThumbnails(phrase, wrapper);
@@ -39,10 +39,12 @@ function loadThumbnails(phrase, wrapper) {
     var videos = response.items;
     var video = videos[0];
     var $video = 
-      $('<div class="aol-video ' + video.channel.replace(/[^\w]/g, '-').toLowerCase() + '">' +
+      $('<div class="aol-video ' + video.channel.replace(/[^\w]+/g, '-').toLowerCase() + '">' +
         '<div class="aol-logo" title="Aol On ' + video.channel + '"></div>' +
+        '<img class="aol-video-thumbnail" src="' + video.image + '" title="' + video.title + ' - Aol On ' + video.channel + '" />' +
         '<a class="fwb aol-video-title">' + video.title + '</a>' +
-        '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
+        '<span class="aol-video-description">' + video.description + '</span>' + 
+        // '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
       '</div>');
 
     $video.on('click', function(event) {
