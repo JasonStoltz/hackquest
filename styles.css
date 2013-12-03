@@ -1,30 +1,212 @@
 
 .aol-video {
+	position: relative;
 	background-color: #EDEFF4;
-	margin: 10px 18px auto 60px;
-	padding: 10px;
+	margin-top: 25px;
+	height: 105px;
+	overflow: hidden;
+	/*font-size: 11pt;
+	line-height: 1.28em;*/
+}
+
+.aol-video-thumbnail {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 140px;
+	height: 105px;
 }
 
 .aol-video-title {
+	margin-left: 140px;
+	padding: 3px 7px;
+	display: block;
+}
 
+.aol-video-description {
+	margin-left: 140px;
+	padding: 0px 7px 3px 7px;
+	display: block;
+}
+
+.aol-video.arts-hobbies .aol-video-player .vjs-play-progress,
+.aol-video.arts-hobbies .aol-video-player .vjs-volume-level {
+	background-color: #e88440;
+}
+
+.aol-video.arts-hobbies .aol-video-title:hover {
+	color: #e88440;
+}
+
+.aol-video.autos .aol-video-player .vjs-play-progress,
+.aol-video.autos .aol-video-player .vjs-volume-level {
+	background-color: #0450c0;
+}
+
+.aol-video.autos .aol-video-title:hover {
+	color: #0450c0;
+}
+
+.aol-video.business .aol-video-player .vjs-play-progress,
+.aol-video.business .aol-video-player .vjs-volume-level {
+	background-color: #228c92;
+}
+
+.aol-video.business .aol-video-title:hover {
+	color: #228c92;
+}
+
+.aol-video.education .aol-video-player .vjs-play-progress,
+.aol-video.education .aol-video-player .vjs-volume-level {
+	background-color: #f0b913;
+}
+
+.aol-video.education .aol-video-title:hover {
+	color: #f0b913;
+}
+
+.aol-video.entertainment .aol-video-player .vjs-play-progress,
+.aol-video.entertainment .aol-video-player .vjs-volume-level {
+	background-color: #ba14a0;
+}
+
+.aol-video.entertainment .aol-video-title:hover {
+	color: #ba14a0;
+}
+
+.aol-video.food .aol-video-player .vjs-play-progress,
+.aol-video.food .aol-video-player .vjs-volume-level {
+	background-color: #db0004;
+}
+
+.aol-video.food .aol-video-title:hover {
+	color: #db0004;
+}
+
+.aol-video.health .aol-video-player .vjs-play-progress,
+.aol-video.health .aol-video-player .vjs-volume-level {
+	background-color: #9cc512;
+}
+
+.aol-video.health .aol-video-title:hover {
+	color: #9cc512;
+}
+
+.aol-video.home .aol-video-player .vjs-play-progress,
+.aol-video.home .aol-video-player .vjs-volume-level {
+	background-color: #925ed0;
+}
+
+.aol-video.home .aol-video-title:hover {
+	color: #925ed0;
+}
+
+.aol-video.life-tips .aol-video-player .vjs-play-progress,
+.aol-video.life-tips .aol-video-player .vjs-volume-level {
+	background-color: #b34dc7;
+}
+
+.aol-video.life-tips .aol-video-title:hover {
+	color: #b34dc7;
+}
+
+.aol-video.news .aol-video-player .vjs-play-progress,
+.aol-video.news .aol-video-player .vjs-volume-level {
+	background-color: #118ef1;
+}
+
+.aol-video.news .aol-video-title:hover {
+	color: #118ef1;
+}
+
+.aol-video.parenting .aol-video-player .vjs-play-progress,
+.aol-video.parenting .aol-video-player .vjs-volume-level {
+	background-color: #71bcfa;
+}
+
+.aol-video.parenting .aol-video-title:hover {
+	color: #71bcfa;
+}
+
+.aol-video.pets .aol-video-player .vjs-play-progress,
+.aol-video.pets .aol-video-player .vjs-volume-level {
+	background-color: #d4947e;
+}
+
+.aol-video.pets .aol-video-title:hover {
+	color: #d4947e;
+}
+
+.aol-video.relationships .aol-video-player .vjs-play-progress,
+.aol-video.relationships .aol-video-player .vjs-volume-level {
+	background-color: #a793ff;
+}
+
+.aol-video.relationships .aol-video-title:hover {
+	color: #a793ff;
+}
+
+.aol-video.sports .aol-video-player .vjs-play-progress,
+.aol-video.sports .aol-video-player .vjs-volume-level {
+	background-color: #c20010;
+}
+
+.aol-video.sports .aol-video-title:hover {
+	color: #c20010;
+}
+
+.aol-video.style .aol-video-player .vjs-play-progress,
+.aol-video.style .aol-video-player .vjs-volume-level {
+	background-color: #fd23de;
+}
+
+.aol-video.style .aol-video-title:hover {
+	color: #fd23de;
+}
+
+.aol-video.tech .aol-video-player .vjs-play-progress,
+.aol-video.tech .aol-video-player .vjs-volume-level {
+	background-color: #a2a2a2;
+}
+
+.aol-video.tech .aol-video-title:hover {
+	color: #a2a2a2;
+}
+
+.aol-video.travel .aol-video-player .vjs-play-progress,
+.aol-video.travel .aol-video-player .vjs-volume-level {
+	background-color: #39a12c;
+}
+
+.aol-video.travel .aol-video-title:hover {
+	color: #39a12c;
+}
+
+.aol-video.video-games .aol-video-player .vjs-play-progress,
+.aol-video.video-games .aol-video-player .vjs-volume-level {
+	background-color: #fd8406;
+}
+
+.aol-video.video-games .aol-video-title:hover {
+	color: #fd8406;
 }
 
 .aol-video .aol-logo {
-	display: block;
-	float: right;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
 	height: 30px;
-	width: 52px;
-	margin-left: 15px;
+	width: 100%;
 	background-repeat: no-repeat;
-	background-position: top left;
+	background-position: right center;
 	background-image: url(http://at.on.aol.com/category/4/7.png); /* default */
 }
 
-.aol-video video {
+.aol-video .aol-video-player {
 	margin-top: 10px;
 }
 
-.aol-video.arts---hobbies .aol-logo {
+.aol-video.arts-hobbies .aol-logo {
 	background-image: url(http://at.on.aol.com/category/58/4.png);
 }
 
