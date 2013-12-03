@@ -20,16 +20,15 @@ function injectAOLVideos() {
     if (sharedLink.length > 0) {
       text = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
     } else {
-      var ugc = wrapper.find(".userContent").text().trim();
-      text = (ugc && NLP.getKeywords(ugc));
+      text = wrapper.find(".userContent").text().trim();
     }
 
     if (text) {
-      NLP2.getKeywords(ugc, function(phrase){
+      NLP2.getKeywords(text, function(phrase){
         if (phrase) {
           var likePageBtn = wrapper.find('.PageLikeButton');
 
-          console.log(idx, " : ", ugc, " : ", phrase);
+          console.log(idx, " : ", text, " : ", phrase);
           // If we found keywords for a phrase, populate some thumbnails.
           if (likePageBtn.length === 0 && phrase) {
             loadThumbnails(phrase, wrapper);
