@@ -12,8 +12,19 @@ function injectAOLVideos() {
       wrapper.addClass("aol-modified"); //We already checked this, don't bother checking it again
       return;
     }
-    var ugc = wrapper.find(".userContent").text().trim();
-    var phrase = (ugc && NLP.getKeywords(ugc));
+
+    var phrase = '';
+    
+    var sharedLink = wrapper.find('._5pb2');
+    if (sharedLink.length > 0) {
+      phrase = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
+      phrase = NLP.getBestPhrase(phrase);
+    } else {
+      var ugc = wrapper.find(".userContent").text().trim();
+      phrase = (ugc && NLP.getKeywords(ugc));
+    }
+
+    wrapper.append(phrase);
     var likePageBtn = wrapper.find('.PageLikeButton');
 
   	console.log(idx, " : ", ugc, " : ", phrase);
