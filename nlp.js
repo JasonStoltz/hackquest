@@ -150,8 +150,16 @@ var NLP = (function(){
       return getBestPhraseAcc(phrases);
     },
 
+    caseFix: function (str) {
+      if (str.toUpperCase() === str) {
+        return str.toLowerCase();
+      }
+
+      return str;
+    },
+
     getKeywords: function(str) {
-      var blob = str.replace(/-/g, ' ').replace(/[…\.,-\/#!$%\^&\*;:{}=\-_`~()\d']/g, '');
+      var blob = this.caseFix(str).replace(/-/g, ' ').replace(/[…\.,-\/#!$%\^&\*;:{}=\-_`~()\d']/g, '');
       var words = blob.split(/\s/).reduce(function(acc, word){
         var l = word.length;
         if (
