@@ -1,6 +1,7 @@
 // Run our video injection at an interval.
 injectAOLVideos();
 setInterval(injectAOLVideos, 1000);
+var videoIds = new Array();
 
 // The setup method that will inject the photos.
 function injectAOLVideos() {
@@ -38,6 +39,10 @@ function loadThumbnails(phrase, wrapper) {
       //do nothing yet
     });
 
-    wrapper.append($video);
+    if (videoIds.indexOf(video.id) ==  -1) {
+      wrapper.append($video);
+      videoIds.push(video.id);
+    };
+
   }); 
 }
