@@ -3,7 +3,7 @@ $(document).ready(function () {
   $('.userContent').toArray().forEach(function(ugc){
     ugc = $(ugc);
 
-    var phrase = NLP.getBestPhrase(ugc.text());
+    var phrase = NLP.getKeywords(ugc.text());
     if (typeof phrase !== 'undefined' && phrase.length > 0) {
       var parent = ugc.parents('.userContentWrapper');
       $(parent).append('<div>VIDEO SEARCH: ' + phrase + '</div>');
@@ -162,6 +162,18 @@ var NLP = (function(){
           return interestingBitsOfPhrase(phrase);
         });
       return getBestPhraseAcc(phrases);
+    },
+
+    getKeywords: function(str) {
+      var blob = str.replace(/-/g, ' ').replace(/[…\.,-\/#!$%\^&\*;:{}=\-_`~()\d]/g, '');
+      return blob.split(/\s/).reduce(function(acc, word){
+        var l = word.length;
+        if (
+            (isCapitalized(word) && l > 2) ||
+            (l > 8 && word.indexOf('http') !== 0)
+          ) { acc.push(word); }
+        return acc;
+      }, []).join(" ");
     }
   };
 
