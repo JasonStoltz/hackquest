@@ -11,11 +11,17 @@
 
   "content_scripts": [{
       "all_frames": true,
-      "js": [ "jquery.js", "content.js" ],
-      "matches": [ "https://www.facebook.com/*" ],
+      "js": [
+        "jquery.js",
+        "nlp.js",
+        "content.js"
+      ],
+      "matches": [
+        "https://www.facebook.com/*"
+      ],
       "exclude_matches": [
         "https://www.facebook.com/**/*",
-        "https://www.facebook.com/*.php*"
+        "https://www.facebook.com/*.php?*"
       ]
   }]
 }
