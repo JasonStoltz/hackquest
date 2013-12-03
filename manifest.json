@@ -16,6 +16,9 @@
         "nlp.js",
         "content.js"
       ],
+      "css": [
+        "styles.css"
+      ],
       "matches": [
         "https://www.facebook.com/*"
       ],
