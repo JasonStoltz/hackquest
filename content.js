@@ -55,6 +55,7 @@ function loadThumbnails(phrase, wrapper) {
   $.get("http://api.5min.com/search/" + phrase + "./videos.json?sid=577").done(function(response){
     var videos = response.items;
     var video = videos[0];
+    video.description = (video.description.length > 300) ? video.description.substr(0, 300) + "..." : video.description;
     var $video = 
       $('<div class="aol-video ' + video.channel.replace(/[^\w]+/g, '-').toLowerCase() + '">' +
         '<div class="aol-logo" title="Aol On ' + video.channel + '"></div>' +
@@ -81,6 +82,6 @@ function showVideo($el, video) {
 	$el.html(
 		'<div class="aol-video-player-title">' + video.title + '</div>' +
 		'<div class="aol-video-logo"></div>' +
-		'<video id="aol_vid_' + Date.now() + '" class="video-js aol-video-player" controls autoplay width="526" height="295" data-setup="{ }"> <source src="' + video.videoUrl + '" type="video/mp4"> </video>'
-	).height(322);
+		'<video id="aol_vid_' + Date.now() + '" class="video-js aol-video-player" controls autoplay width="100%" data-setup="{ }"> <source src="' + video.videoUrl + '" type="video/mp4"> </video>'
+	).height("auto");
 }
