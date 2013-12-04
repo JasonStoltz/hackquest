@@ -65,8 +65,9 @@ function loadThumbnails(phrase, wrapper) {
         // '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
       '</div>');
 
-    $video.on('click', function(event) {
-      //do nothing yet
+console.log(video);
+    $video.on('click', ".aol-video-thumbnail-overlay", function(event) {
+    	showVideo($video, video);
     });
 
     if (videoIds.indexOf(video.id) ==  -1) {
@@ -75,4 +76,10 @@ function loadThumbnails(phrase, wrapper) {
     };
 
   }); 
+}
+
+function showVideo($el, video) {
+	$el.html(
+		'<video id="aol_vid_' + Date.now() + '" class="aol-video-player" controls preload="auto" width="526" height="317" poster="' + video.image + '" data-setup="{ }"> <source src="' + video.videoUrl + '" type="video/mp4"> </video>'
+	).height(317);
 }

@@ -15,10 +15,12 @@
         "jquery.js",
         "nlp.js",
         "nlp2.js",
-        "content.js"
+        "content.js",
+        "video.js"
       ],
       "css": [
-        "styles.css"
+        "styles.css",
+        "video.css"
       ],
       "matches": [
         "https://www.facebook.com/*"
