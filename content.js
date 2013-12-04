@@ -16,26 +16,30 @@ function injectAOLVideos() {
 
     var text = '';
     
-    var sharedLink = wrapper.find('._5pb2');
+    var sharedLink = wrapper.find('.mvm a');
     if (sharedLink.length > 0) {
       text = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
-    } else {
+    } 
+    if (!text) {
       text = wrapper.find(".userContent").text().trim();
     }
 
-    if (text) {
-      NLP2.getKeywords(text, function(phrase){
-        if (phrase) {
-          var likePageBtn = wrapper.find('.PageLikeButton');
+    NLP2.getKeywords(text, function(phrase){
+      if (!phrase) {
+        phrase = NLP.getKeywords(text);
+      }
+      if (phrase) {
+        var likePageBtn = wrapper.find('.PageLikeButton');
 
-          console.log(idx, " : ", text, " : ", phrase);
-          // If we found keywords for a phrase, populate some thumbnails.
-          if (likePageBtn.length === 0 && phrase) {
-            loadThumbnails(phrase, wrapper);
-          }
+        console.log(idx, " : ", text, " : ", phrase);
+        // If we found keywords for a phrase, populate some thumbnails.
+        if (likePageBtn.length === 0 && phrase) {
+          loadThumbnails(phrase, wrapper);
         }
-      });
-    }
+      }
+
+      console.log("text:" + text + " phrase:" + phrase);
+    });
   });
 }
 
