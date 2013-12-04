@@ -65,7 +65,7 @@ function loadThumbnails(phrase, wrapper) {
         // '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
       '</div>');
 
-    $video.on('click', ".aol-video-thumbnail-overlay", function(event) {
+    $video.on('click', ".aol-video-thumbnail-overlay, .aol-video-title", function(event) {
     	showVideo($video, video);
     });
 
