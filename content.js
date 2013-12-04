@@ -19,7 +19,8 @@ function injectAOLVideos() {
     if (sharedLink.length > 0) {
       phrase = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
     } else {
-      var ugc = wrapper.find(".userContent").text().trim();
+      var ugcWrapper = wrapper.find(".userContent");
+      var ugc = ugcWrapper.text().trim();
       phrase = (ugc && NLP.getKeywords(ugc));
     }
 
@@ -51,6 +52,7 @@ function loadThumbnails(phrase, wrapper) {
       $('<div class="aol-video ' + video.channel.replace(/[^\w]+/g, '-').toLowerCase() + '">' +
         '<div class="aol-logo" title="Aol On ' + video.channel + '"></div>' +
         '<img class="aol-video-thumbnail" src="' + video.image + '" title="' + video.title + ' - Aol On ' + video.channel + '" />' +
+        '<div class="aol-video-thumbnail-overlay"></div>' +
         '<a class="fwb aol-video-title">' + video.title + '</a>' +
         '<span class="aol-video-description">' + video.description + '</span>' + 
         // '<video id="'+ video.id +'" class="aol-video-base controls preload="auto" width="379px" height="212px" poster="'+video.image+'" data-setup=""> <source src="' + video.videoUrl + '" type="video/mp4"> </video>' +
@@ -61,7 +63,7 @@ function loadThumbnails(phrase, wrapper) {
     });
 
     if (videoIds.indexOf(video.id) ==  -1) {
-      wrapper.find('._5pax').append($video);
+      wrapper.parent().append($video);
       videoIds.push(video.id);
     };
 
