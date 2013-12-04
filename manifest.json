@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "AOL Videos on Facebook",
-  "description": "Injects AOL Videos onto your Facebook posts that provide related content to the post.",
+  "name": "Aol On Facebook",
+  "description": "Provides Aol On content directly in your Facebook feed.",
   "version": "1.0",
 
   "permissions": [
