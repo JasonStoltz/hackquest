@@ -8,32 +8,39 @@ function injectAOLVideos() {
 	console.log("injecting");
   $('.userContentWrapper:not(.aol-modified)').each(function (idx) {
     var wrapper = $(this);
+    var ugcWrapper = wrapper.find(".userContent");
+    wrapper.addClass("aol-modified"); //We already checked this, don't bother checking it again
+
     if (isSubContent(wrapper)) {
-      wrapper.addClass("aol-modified"); //We already checked this, don't bother checking it again
       return;
     }
 
-    var phrase = '';
+    var text = '';
     
-    var sharedLink = wrapper.find('._5pb2');
+    var sharedLink = wrapper.find('.mvm a');
     if (sharedLink.length > 0) {
-      phrase = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
-    } else {
-      var ugcWrapper = wrapper.find(".userContent");
-      var ugc = ugcWrapper.text().trim();
-      phrase = (ugc && NLP.getKeywords(ugc));
+      text = sharedLink.text().toLowerCase().replace(/home|page|website|homepage/g, '');
+    } 
+    else {
+      text = ugcWrapper.text().trim();
     }
 
-    var likePageBtn = wrapper.find('.PageLikeButton');
+    NLP2.getKeywords(text, function(phrase){
+      if (!phrase) {
+        phrase = NLP.getKeywords(text);
+      }
+      if (phrase) {
+        var likePageBtn = wrapper.find('.PageLikeButton');
 
-console.log(idx, " : ", ugc, " : ", phrase);
-    // If we found keywords for a phrase, populate some thumbnails.
-    if (likePageBtn.length === 0 && phrase) {
-      loadThumbnails(phrase, wrapper);
-    }
+        console.log(idx, " : ", text, " : ", phrase);
+        // If we found keywords for a phrase, populate some thumbnails.
+        if (likePageBtn.length === 0 && phrase) {
+          loadThumbnails(phrase, wrapper);
+        }
+      }
 
-    // Flag the wrapper so we don't deal with it again.
-    wrapper.addClass("aol-modified");
+      console.log("text:" + text + " phrase:" + phrase);
+    });
   });
 }
 
