@@ -164,7 +164,7 @@ var NLP = (function(){
         var l = word.length;
         if (
             (isCapitalized(word) && l > 3) ||
-            (l > 6 && word.indexOf('http') !== 0)
+            (l > 5 && word.indexOf('http') !== 0)
           ) { acc.push(word); }
         return acc;
       }, []);
